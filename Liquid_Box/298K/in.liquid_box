@@ -9,7 +9,7 @@
 
 
 
-variable            NAME string water_box_298K_1atm_ML
+variable            NAME string liquid_298K_1atm_ML
 variable            TEMP string 298
 variable            PRES string 1
 variable       	    TCOUPL string 5000.0
@@ -29,17 +29,17 @@ atom_style          atomic
 #######    Equilibrate Liquid Water    #########
 ################################################      
 
-log                 log.${NAME}.eq_water
+log                 log.eq_${NAME}
 
-# Create simulation box of size 30 x 30 x 30 Angstrom
+# Create simulation box of size 50 x 50 x 50 Angstrom
 #
 lattice	            sc 1
-region 	            all block 0 30 0 30 0 30 units box
+region 	            all block 0 50 0 50 0 50 units box
 create_box          1 all 
 
-# fill box with 900 randomly distributed atoms
+# fill box with 4169 randomly distributed atoms
 #
-create_atoms        1 random 900 63782 all
+create_atoms        1 random 4169 63782 all
 mass                1 18.015
 
 # Define potential
@@ -54,12 +54,12 @@ minimize            1.0e-8 1.0e-8 10000 1000
 # Add velocity/set timestep
 #
 velocity            all create ${TEMP} 120598 rot yes dist gaussian
-timestep            10.0
+timestep            5.0
 
 # Define output
 #
 compute	            1 all msd
-thermo	            5000
+thermo	            50
 thermo_style        custom step temp press vol etotal ke pe c_1[4] density
 
 # Neighbor lists
@@ -75,8 +75,8 @@ fix                 4 all press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 200
 
 # Run 1 ns equilibration
 #
-dump                1 all custom 5000 eq.water.${NAME}.dump id type x y z vx vy vz
-run                 100000
+dump                1 all custom 1000 eq.water.${NAME}.dump id type x y z vx vy vz
+run                 200000
 
 undump              1
 unfix               2
@@ -93,9 +93,12 @@ log                 log.run_${NAME}
 
 # Set production fixes - Nose/Hoover
 #
-fix                 2 all npt temp ${TEMP} ${TEMP} ${TDAMP} iso ${PRES} ${PRES} ${PDAMP}   
+fix                 2 all nph iso ${PRES} ${PRES} ${PCOUPL} 
+fix                 3 all temp/csvr ${TEMP} ${TEMP} ${TCOUPL} 837492
+
+# compute order parameter
 compute             2 all orientorder/atom nnn NULL cutoff 3.5
 
-# Run 1ns simulation
-dump		    1 all custom 10000 prod.${NAME}.dump id type x y z vx vy vz c_2[*]
-run                 100000
+# Run 5ns simulation
+dump		    1 all custom 1000 prod.${NAME}.dump id type x y z vx vy vz c_2[*]
+run                 2000000
