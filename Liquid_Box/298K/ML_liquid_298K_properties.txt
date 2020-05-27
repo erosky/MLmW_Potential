@@ -1,0 +1,21 @@
+May 27, ML-mW Model at 298K
+equilibrated with nve
+ran with nph and thermostat
+
+
+
+Temperature (K): 297.9978748, 3.693164456288721
+Pressure (atm): -3.3045913273999994, 316.1649055680508
+Density (N/A^3): 0.03309771473970449, 0.0001550600201038732
+Mass density (g/cm^3): 1.007751102, 0.004721228421093753
+Slope of MSD (cm^2/s)): 0.0003491042730541581, 1.4131402059714135e-07
+
+
+
+
+--
+Notes
+Compared to reported values at 298K, the density is 10.7 kn/m^2 too large
+The Diffusion is too high: 5.8e-5 cm^2/s instead of 4.7e-5
+
+Seems like pressure might not be very maintained at 1 atm. The average value is -3.3 atm.

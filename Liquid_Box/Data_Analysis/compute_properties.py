@@ -41,7 +41,7 @@ data = loadtxt(datafile)
 raw_vars = ["step", "temp", "pressure", "volume", "etotal", "ke", "pe", "msd"]
 compute_vars = ["temp", "pressure", "density", "msd"]
 
-# Ryan Eq
+# Input Data Columns ----MAKE SURE THESE MATCH THE INPUT DATA FILE----
 step, temp, pressure, volume, etotal, ke, pe, msd = transpose(data)
 
 # nvt Eq

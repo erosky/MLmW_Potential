@@ -11,12 +11,12 @@ echo $1
 
 run=$1
 start=115
-end=136
-logfile="log.water_box_298K_1atm_ML.eq_water"
-datafile="water_box_298K_1atm_ML_eq.dat"
+end=4115
+logfile="log.eq_liquid_298K_1atm_ML"
+datafile="eq_liquid_289K_1atm_ML.dat"
 
 temp="298"
-pres="1 atm"
+pres="1atm"
 
 
 
@@ -26,8 +26,8 @@ sed "s/^[ \t]*//" ${logfile} | awk -v start=${start} -v end=${end} '{if ((NR>sta
 
 # Plot and save Pot Energy
 gnuplot -e "set terminal png size 1000,600; \
-            set output 'PE_${pres}_${temp}.png'; \
-            set title 'Potential Energy - ${temp}K equilibration'; \
+            set output 'PE_${pres}_${temp}_ML.png'; \
+            set title 'Potential Energy - ${temp}K equilibration, ML-mW'; \
             set ylabel 'kJ/mol'; \
             set xlabel 'Time (ns)'; \
             set style data lines; \
@@ -35,8 +35,8 @@ gnuplot -e "set terminal png size 1000,600; \
 
 # Plot and save Mean square disp
 gnuplot -e "set terminal png size 1000,600; \
-            set output 'MSD_${pres}_${temp}.png'; \
-            set title 'Mean Square Displacement vs Time - ${temp}K equilibration'; \
+            set output 'MSD_${pres}_${temp}_ML.png'; \
+            set title 'Mean Square Displacement - ${temp}K equilibration, ML-mW'; \
             set ylabel 'Angstroms'; \
             set xlabel 'Time (ns)'; \
             set style data lines; \
