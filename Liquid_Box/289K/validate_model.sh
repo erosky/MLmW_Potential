@@ -12,12 +12,12 @@
 echo "running"
 
 run=$1
-start=20039
+start=39
 end=40039
-logfile="log.run_liquid_298K_1atm_ML"
-datafile="run_liquid_298K_1atm_ML.dat"
+logfile="log.run_liquid_289K_1atm_ML"
+datafile="run_liquid_289K_1atm_ML.dat"
 
-temp="298"
+temp="289"
 pres="1 atm"
 
 

@@ -12,10 +12,10 @@ echo $1
 run=$1
 start=115
 end=4115
-logfile="log.eq_liquid_298K_1atm_ML"
+logfile="log.eq_liquid_289K_1atm_ML"
 datafile="eq_liquid_289K_1atm_ML.dat"
 
-temp="298"
+temp="289"
 pres="1atm"
 
 
