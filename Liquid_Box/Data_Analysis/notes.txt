@@ -1,11 +1,18 @@
 Instructions
 --
 Use "extract_from_log.sh LOG_FILE OUTPUT_DAT_FILE" to take just the lines from the simulation log file with data in them. You must edit the script to take the correct start and end lines from the log file. This will output the data to OUTPUT_DAT_FILE.
+You can also use a modulo option to take every few data points instead of all of them. (see code comments)
 
 Make sure the input data column labels in "compute_properties.py" match the columns of the input data.
 
 Use "compute_properties.py" by inputing the data file (from "extract_from_log.sh")
 
+
+
+--
+In 298 Folder, for example
+Run the input file.
+Use "validate_eq.sh" to obtain a .dat file from the log file, and plot PE and MSD.
 
 
 
@@ -16,6 +23,9 @@ May 27
 So far it looks like compute_properties.py is just a fancy version of validate_water.py
 May be able to just delete validate_water.py soon.
 
-Also the output file option in these two files doesn't actually do anything.
+Looking like I might not need the "produce_figures.py" file either.
+
+I think "validate_model.sh" in the 298 file is useless cause I have the compute_properties.py code. May be able to delete.
+
 
 

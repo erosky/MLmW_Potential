@@ -38,11 +38,11 @@ output = open(outputfile,'w')
 data = loadtxt(datafile)
 
 # Set properties
-raw_vars = ["step", "temp", "pressure", "volume", "etotal", "ke", "pe", "msd"]
-compute_vars = ["temp", "pressure", "density", "msd"]
+raw_vars = ["step", "temp", "pressure", "volume", "etotal", "ke", "pe", "msd", "mass_density"]
+compute_vars = ["temp", "pressure", "density", "msd", "mass_density"]
 
 # Input Data Columns ----MAKE SURE THESE MATCH THE INPUT DATA FILE----
-step, temp, pressure, volume, etotal, ke, pe, msd = transpose(data)
+step, temp, pressure, volume, etotal, ke, pe, msd, mass_density = transpose(data)
 
 # nvt Eq
 #step, temp, ke, pe, pressure, msd = transpose(data)
@@ -53,7 +53,7 @@ step, temp, pressure, volume, etotal, ke, pe, msd = transpose(data)
 if "density" in compute_vars:
 	density = []
 	for v in volume:
-		density.append(real2SI("density", (atoms/v)))
+		density.append(atoms/v)
 
 # Calculate Standard Dev
 def std_dev(data_list, avg):
@@ -69,14 +69,22 @@ if "temp" in compute_vars:
 	temp_avg = sum(temp)/len(temp)
 	temp_std = std_dev(temp, temp_avg)
 	print ("Temperature: ", temp_avg , ", " , temp_std)
+	output.write("\nTemperature (K): " + str(temp_avg) + ", " + str(temp_std))
 if "pressure" in compute_vars:
 	pressure_avg = sum(pressure)/len(pressure)
 	pressure_std = std_dev(pressure, pressure_avg)
 	print ("Pressure: ", pressure_avg , ", " , pressure_std)
+	output.write("\nPressure (atm): "+ str(pressure_avg) + ", " + str(pressure_std))
 if "density" in compute_vars:
 	density_avg = sum(density)/len(density)
 	density_std = std_dev(density, density_avg)
 	print ("Density: ", density_avg, ", " , density_std)
+	output.write("\nDensity (N/A^3): "+ str(density_avg) + ", " + str(density_std))
+if "mass_density" in compute_vars:
+	m_density_avg = sum(mass_density)/len(mass_density)
+	m_density_std = std_dev(mass_density, m_density_avg)
+	print ("Mass density: ", m_density_avg, ", " , m_density_std)
+	output.write("\nMass density (g/cm^3): "+ str(m_density_avg) + ", " + str(m_density_std))
 
 
 # Do a linear fit of msd with respect to time
@@ -94,6 +102,7 @@ if "msd" in compute_vars:
 	params, params_covar = curve_fit(linear_func, time, msd_SI)
 	perr = np.sqrt(np.diag(params_covar))
 	print ("Slope of MSD: ", params[0], perr[0])
+	output.write("\nSlope of MSD (cm^2/s)): "+ str(params[0]) + ", " + str(perr[0]))
 	
 	pyplot.plot(time, msd_SI)
 	show()
