@@ -1,17 +1,19 @@
 
-# Set up and Equilibrate 25 x 30 x 30 Angstrom box of ice
-# 270 K
+# Set up and Equilibrate 50 x 50 x 50 Angstrom box of ice
+# ML-mW, Chan et.al. 2009, Nat Comm
+# fill box with diamond lattice
+# pressure should be at 1 atm
+# density of 0.0310473103 N/A^3
+# 289 K
 # Real units, atomic atom style (no bonded interactions)
 # time in units of fs
 # equilibrate for 1 ns
-# run NPT with 10fs time steps
-# Nose-Hoover thermostat and barostat with relaxation time 1 and 2.5 ps
-# pressure = 0
-# run for 10 ns
+# verify equilibrium by lookig at potential energy, MSD and Pressure
+# measure density, self-diffusion, and order params
 
 
-variable            NAME string ice_box_270K_1atm
-variable            TEMP string 270
+variable            NAME string ice_289K_1atm_ML
+variable            TEMP string 289
 variable            PRES string 1
 variable            TCOUPL string 5000.0
 variable            PCOUPL string 10000.0
@@ -24,13 +26,13 @@ log		    log.eq_${NAME}
 
 # Define the lattice
 #
-variable	    lattice_constant equal 6.2045
+variable	    lattice_constant equal 6.36339
 lattice		    diamond ${lattice_constant}
 
 # Define region
 # multiples of lattice spacing
 #
-region 		    simbox block 0 4 0 5 0 5
+region 		    simbox block 0 8 0 8 0 8
 
 # Create Atoms
 #
@@ -46,7 +48,7 @@ pair_coeff          * * ML_mW.sw mW
 # Add velocity/set timestep
 #
 velocity            all create ${TEMP} 120598 rot yes dist gaussian
-timestep            10.0
+timestep            5.0
 
 # Define output
 #
@@ -67,8 +69,8 @@ fix                 4 all press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 200
 
 # Run 1 ns equilibration
 #
-dump		    1 all atom 1000 eq.${NAME}.dump
-run	            100000
+dump		    1 all custom 1000 eq.${NAME}.dump id type x y z vx vy vz
+run                 200000
 
 undump              1
 unfix               2
@@ -76,25 +78,27 @@ unfix               3
 unfix               4
 
 
-# Define Order parameter
-#
-compute             2 all orientorder/atom nnn NULL cutoff 3.5
-thermo              1000
-thermo_style        custom step temp press vol etotal ke pe c_1[4]
-
 
 
 ################################################
 #######         Run Simulation         #########
 ################################################  
 
+reset_timestep      0
 log                 log.run_${NAME}
 
 # Set production fixes - Nose/Hoover
 #
-fix                 2 all npt temp ${TEMP} ${TEMP} ${TDAMP} iso ${PRES} ${PRES} ${PDAMP}   
+fix                 2 all nph iso ${PRES} ${PRES} ${PCOUPL} 
+fix                 3 all temp/csvr ${TEMP} ${TEMP} ${TCOUPL} 837492  
 
-# Run 1ns simulation
-dump		    1 all custom 10000 prod.${NAME}.dump id type x y z vx vy vz fx fy fz c_2[*]
-run                 100000
+# Define Order parameter
+#
+compute             2 all orientorder/atom nnn NULL cutoff 3.5
+thermo              1000
+thermo_style        custom step temp press vol etotal ke pe c_1[4]
+
+# Run 5ns simulation
+dump		    1 all custom 1000 prod.${NAME}.dump id type x y z vx vy vz c_2[*]
+run                 2000000
 

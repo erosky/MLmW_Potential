@@ -1,0 +1,11 @@
+Need to make sure we get the ice density close to that on ML-mW
+The density of ice in ML-mW is much lower than for the mW model.
+
+so we need to determine the correct lattice constant L
+There are 8 atoms in the diamond lattice cell, with endge length L
+
+8/L^3 = Number density
+
+NumDens = 0.0310473103 N/A^3
+
+L = 6.36339
