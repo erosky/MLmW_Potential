@@ -55,6 +55,11 @@ if "density" in compute_vars:
 	for v in volume:
 		density.append(atoms/v)
 
+# Get instantaneous mass density at each timestep
+manual_mass_density = []
+for v in volume:
+	manual_mass_density.append(real2SI("density", (atoms/v)))
+
 # Calculate Standard Dev
 def std_dev(data_list, avg):
 	stdd_sum = 0
@@ -81,10 +86,10 @@ if "density" in compute_vars:
 	print ("Density: ", density_avg, ", " , density_std)
 	output.write("\nDensity (N/A^3): "+ str(density_avg) + ", " + str(density_std))
 if "mass_density" in compute_vars:
-	m_density_avg = sum(mass_density)/len(mass_density)
-	m_density_std = std_dev(mass_density, m_density_avg)
-	print ("Mass density: ", m_density_avg, ", " , m_density_std)
-	output.write("\nMass density (g/cm^3): "+ str(m_density_avg) + ", " + str(m_density_std))
+	m_density_avg = sum(manual_mass_density)/len(manual_mass_density)
+	m_density_std = std_dev(manual_mass_density, m_density_avg)
+	print ("Manual Mass density: ", m_density_avg, ", " , m_density_std)
+	output.write("\nManual Mass density (g/cm^3): "+ str(m_density_avg) + ", " + str(m_density_std))
 
 
 # Do a linear fit of msd with respect to time
