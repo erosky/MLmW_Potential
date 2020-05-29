@@ -9,3 +9,10 @@ There are 8 atoms in the diamond lattice cell, with endge length L
 NumDens = 0.0310473103 N/A^3
 
 L = 6.36339
+
+
+There are definitely some issues.
+
+Box contracts to a very high density 1000 g/cm^3
+Ice ordering vanishes, nd it behaves like a liquid.
+Perhaps my ML-mW parameters are wrong
