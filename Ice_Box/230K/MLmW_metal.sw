@@ -1,4 +1,6 @@
-# DATE: 2019-02-27 CONTRIBUTOR: Elise Rosky, emrosky@mtu.edu CITATION: Molinero and Moore,  J Phys Chem, 113, 4008-4016, (2009); Chan et. al., Nat Comm, (2019), https://doi.org/10.1038/s41467-018-08222-6
+# DATE: 2019-02-27 CONTRIBUTOR: Elise Rosky, emrosky@mtu.edu 
+# CITATION: Chan et. al., Nat Comm, (2019), https://doi.org/10.1038/s41467-018-08222-6
+#
 # Stillinger-Weber parameters for modeling water - ML-mW model
 # multiple entries can be added to this file, LAMMPS reads the ones it needs
 # these entries are in LAMMPS "metal" units:
@@ -9,7 +11,7 @@
 #   element 1, element 2, element 3, 
 #   epsilon, sigma, a, lambda, gamma, costheta0, A, B, p, q, tol
 
-# Here are the machine learned parameters in real units from:
+# Here are the machine learned parameters in metal units from:
 #
 # Chan et. al., Nat Comm, (2019)
 #

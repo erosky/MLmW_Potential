@@ -6,8 +6,7 @@
 # density of 0.0310473103 N/A^3
 # 230 K
 # metal units, atomic atom style (no bonded interactions)
-# time in units of fs
-# equilibrate for 1 ns
+# time in units of ps
 # verify equilibrium by lookig at potential energy, MSD and Pressure
 # measure density, self-diffusion, and order params
 
@@ -65,10 +64,10 @@ neigh_modify        delay 0 every 1 check yes
 fix                 1 all momentum 10 linear 1 1 1 rescale
 fix                 2 all npt temp ${TEMP} ${TEMP} ${TDAMP} iso ${PRES} ${PRES} ${PDAMP}
 
-# Run 1 ns equilibration
+# Run 0.5 ns equilibration
 #
 dump		    1 all custom 1000 eq.${NAME}.dump id type x y z vx vy vz
-run                 200000
+run                 100000
 
 undump              1
 unfix               2
