@@ -13,11 +13,11 @@ echo "running"
 
 run=$1
 start=42
-end=2042
-logfile="log.run_ice_289K_1atm_ML"
-datafile="run_ice_289K_1atm_ML.dat"
+end=142
+logfile="log.run_ice_230K_1atm_ML_npt"
+datafile="run_ice_230K_1atm_ML_npt.dat"
 
-temp="289"
+temp="230"
 pres="1 atm"
 
 

@@ -11,11 +11,11 @@ echo $1
 
 run=$1
 start=76
-end=4076
-logfile="log.eq_ice_289K_1atm_ML"
-datafile="eq_ice_289K_1atm_ML.dat"
+end=476
+logfile="log.eq_ice_230K_1atm_ML_npt"
+datafile="eq_ice_230K_1atm_ML_npt.dat"
 
-temp="289"
+temp="230"
 pres="1atm"
 
 
