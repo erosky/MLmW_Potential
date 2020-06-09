@@ -53,7 +53,6 @@ neigh_modify        delay 0 every 1 check yes
 
 # Set fixes
 #
-fix                 1 all momentum 10 linear 1 1 1 rescale
 fix                 2 all nve
 fix                 3 all temp/csvr ${TEMP} ${TEMP} 500.0 928347
 fix                 4 all press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 20000
