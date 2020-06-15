@@ -1,0 +1,6 @@
+forces go to zero at a distance aσ,
+for mW model: a= 1.8, σ = 2.3925 Angstroms
+potential goes to zero at 4.3065 Angstroms
+
+ML-mw model: a = 2.124872. σ = 1.884015 Angstroms (the watermolecule is smaller, but cutoff distance is longer)
+potential goes to zero at 4.003290721 Angstroms
