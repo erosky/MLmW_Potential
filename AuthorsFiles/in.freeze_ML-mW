@@ -1,0 +1,40 @@
+# LAMMPS input script
+variable seed equal 7545
+
+boundary p p p
+units       metal
+atom_style  atomic
+atom_modify map array sort 0 0
+read_data   structures/data.Ih_liq_interface
+pair_style  sw
+pair_coeff  * * WT_ML-mW.sw WT
+
+# ----- Variables -----
+variable T equal 260
+variable P equal 1.0
+
+# ----- Initialize -----
+velocity  all create ${T} ${seed}
+neighbor 2.0 nsq
+neigh_modify delay 0 every 1 check yes
+
+# ----- Computes -----
+compute msd all  msd com yes
+
+# ----- Log -----
+thermo        1000
+thermo_style custom step atoms etotal ke pe temp press lx ly lz enthalpy density c_msd[4]
+thermo_modify line multi norm yes flush yes format float %.6f
+
+# ----- Output Trajectory -----
+dump positions all  custom 1000 output_ML-mW.lammpstrj id type x y z
+
+# ----- Minimize -----
+minimize 1e-4 1e-6 1000 10000
+min_style cg
+
+# ----- Temperature/Pressure Controls -----
+fix integrate all  npt temp ${T} ${T} 0.1 iso ${P} ${P} 1.0
+
+timestep 0.005 # 5 fs
+run 100000 # 0.5 ns
