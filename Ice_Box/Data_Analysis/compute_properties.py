@@ -102,7 +102,7 @@ if "msd" in compute_vars:
 	for d in msd:
 		msd_SI.append(real2SI("msd", d))
 	for s in step:
-		time.append(real2SI("time", s))
+		time.append(s * (10**-9))
 	
 	params, params_covar = curve_fit(linear_func, time, msd_SI)
 	perr = np.sqrt(np.diag(params_covar))

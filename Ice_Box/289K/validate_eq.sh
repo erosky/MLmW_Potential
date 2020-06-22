@@ -11,7 +11,7 @@ echo $1
 
 run=$1
 start=76
-end=4076
+end=1076
 logfile="log.eq_ice_289K_1atm_ML"
 datafile="eq_ice_289K_1atm_ML.dat"
 
@@ -21,7 +21,7 @@ pres="1atm"
 
 
 # Convert timestep to ns, convert energies from kcal/mol to kJ/mol
-sed "s/^[ \t]*//" ${logfile} | awk -v start=${start} -v end=${end} '{if ((NR>start)&&(NR<end)) { print $1/100000, $2, $3, $4, $5*4.184, $6*4.184, $7*4.184, $8, $9 }}' > ${datafile}
+sed "s/^[ \t]*//" ${logfile} | awk -v start=${start} -v end=${end} '{if ((NR>start)&&(NR<end)) { print $1/200000, $2, $3, $4, $5*4.184, $6*4.184, $7*4.184, $8, $9 }}' > ${datafile}
 
 
 # Plot and save Pot Energy

@@ -59,7 +59,7 @@ timestep            5.0
 # Define output
 #
 compute	            1 all msd
-thermo	            50
+thermo	            100
 thermo_style        custom step temp press vol etotal ke pe c_1[4] density
 
 # Neighbor lists
@@ -73,10 +73,10 @@ fix                 2 all nve
 fix                 3 all temp/csvr ${TEMP} ${TEMP} 500.0 928347
 fix                 4 all press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 20000
 
-# Run 1 ns equilibration
+# Run 0.5 ns equilibration
 #
 dump                1 all custom 1000 eq.${NAME}.dump id type x y z vx vy vz
-run                 200000
+run                 100000
 
 undump              1
 unfix               2
@@ -99,6 +99,7 @@ fix                 3 all temp/csvr ${TEMP} ${TEMP} ${TCOUPL} 837492
 # compute order parameter
 compute             2 all orientorder/atom nnn NULL cutoff 3.5
 
-# Run 5ns simulation
-dump		    1 all custom 1000 prod.${NAME}.dump id type x y z vx vy vz c_2[*]
-run                 2000000
+# Run 1ns simulation
+thermo              200
+dump		        1 all custom 400 prod.${NAME}.dump id type x y z vx vy vz c_2[*]
+run                 200000

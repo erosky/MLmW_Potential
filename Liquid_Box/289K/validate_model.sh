@@ -12,8 +12,8 @@
 echo "running"
 
 run=$1
-start=39
-end=40039
+start=40
+end=1040
 logfile="log.run_liquid_289K_1atm_ML"
 datafile="run_liquid_289K_1atm_ML.dat"
 
@@ -23,7 +23,7 @@ pres="1 atm"
 
 
 # Convert timestep to ns, convert energies from kcal/mol to kJ/mol
-sed "s/^[ \t]*//" ${logfile} | awk -v start=${start} -v end=${end} '{if ((NR>start)&&(NR<end)&&(NR%20 == 0)) { print $1/100000, $2, $3, $4, $5*4.184, $6*4.184, $7*4.184, $8, $9 }}' > ${datafile}
+sed "s/^[ \t]*//" ${logfile} | awk -v start=${start} -v end=${end} '{if ((NR>start)&&(NR<end)) { print $1/200000, $2, $3, $4, $5*4.184, $6*4.184, $7*4.184, $8, $9 }}' > ${datafile}
 
 
 # Plot and save Pot Energy

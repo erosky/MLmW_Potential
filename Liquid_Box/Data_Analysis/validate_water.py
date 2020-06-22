@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+# For analyzing thermodynamic data from a lammps log file
 # USE: python validate_water.py DATA_FILE OUTPUT_FILE
 
 import sys
