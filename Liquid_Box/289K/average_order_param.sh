@@ -3,8 +3,8 @@
 # read in dump file
 # if line in file has 14 entries, then keep it
 # average values of last 5 fields q4, q6, q8, q10, q12
-echo "Order parameters computed for ML-mW ice at 289K"
-dumpfile='prod.ice_289K_1atm_ML.dump'
+echo "Order parameters computed for ML-mW liquid at 289K"
+dumpfile='prod.liquid_289K_1atm_ML.dump'
 
 awk '{ if (NF==13) sum4 += $9; sum6 += $10; sum8 += $11; sum10 += $12; sum12 += $13; n++ } END { print sum4 / n; print sum6 / n; print sum8 / n; print sum10 / n; print sum12 / n }' $dumpfile
 
