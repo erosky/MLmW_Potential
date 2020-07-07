@@ -1,1 +1,23 @@
 Flat Interface - use a slab
+
+https://lammps.sandia.gov/doc/compute_stress_atom.html
+
+output of compute: xx, yy, zz, xy, xz, yz
+
+Surface tension computed should not change if slab thickness changes I think.
+Try two different thicknesses and see.
+
+Pn(z) = Pzz(z) = sum off Pzz of all atoms in slice V(z) divided by V(z)
+
+Pt(z) = 1/2[Pxx(z) + Pyy(z)]
+
+In the supplementary material of Tianshu Lu Nat Comm,
+the pressure tensor compunents are a volume average of the per atom component in the slice volume.
+
+
+create data file that is z, Pxx(z), Pyy(z), Pzz(z), Pn(z), Pt(z)
+
+then use that as input file for integrating
+
+
+
