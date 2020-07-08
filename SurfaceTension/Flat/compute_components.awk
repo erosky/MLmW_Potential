@@ -28,6 +28,6 @@ BEGIN { Z = 72 ; thickness = 12 ; V = 30000 ; start = 0 ; t = 0 ; Pxx = 0 ; Pyy 
 	if ($2=="ATOMS") {
 		a = 1 ; v_n = 0 ; v_Pxx = 0 ; v_Pyy = 0 ; v_Pzz = 0 ; next
 	}
-	if (a==1 && $6>Z-thickness/2 && $6<Z+thickness/2) { v_Pxx += $15 ; v_Pyy += $16 ; v_Pzz += $17 ; v_n++ }
+	if (a==1 && $6<Z) { v_Pxx += $15 ; v_Pyy += $16 ; v_Pzz += $17 ; v_n++ }
 }
 END { print Z "\t" Pxx/t "\t" Pyy/t "\t" Pzz/t "\t" Pzz/t "\t" 0.5*(Pxx/t + Pyy/t) "\t" n/t "\t" t }

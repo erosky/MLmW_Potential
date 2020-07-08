@@ -8,7 +8,7 @@ volume=30000
 
 truncate -s 0 $output
 
-for Z in {0..72}
+for Z in {0..100}
 do
         # make temporary data file 
         touch $Z.dat
