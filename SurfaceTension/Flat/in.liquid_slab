@@ -98,8 +98,7 @@ log                 log.run_${NAME}
 
 # Set production fixes - Nose/Hoover
 #
-fix                 2 all nph iso ${PRES} ${PRES} ${PCOUPL} 
-fix                 3 all temp/csvr ${TEMP} ${TEMP} ${TCOUPL} 837492
+fix                 2 all nvt iso ${TEMP} ${TEMP} ${TDAMP}
 
 # compute order parameter
 compute             2 all orientorder/atom nnn NULL cutoff 3.5
