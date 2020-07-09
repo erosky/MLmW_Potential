@@ -2,7 +2,7 @@
 
 output=components.dat
 
-dumpfile=log.run_slab_289K_1atm
+dumpfile=prod.slab_289K_1atm.dump
 
 volume=30000
 
