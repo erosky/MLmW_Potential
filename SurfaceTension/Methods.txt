@@ -20,4 +20,11 @@ create data file that is z, Pxx(z), Pyy(z), Pzz(z), Pn(z), Pt(z)
 then use that as input file for integrating
 
 
+------------------
+Instructions
+------------------
+
+compute_components.sh invokes the compute_components.awk script
+
+
 

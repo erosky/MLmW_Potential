@@ -1,9 +1,0 @@
-
-# Set production fixes - Nose/Hoover
-#
-fix                 2 all nvt iso ${TEMP} ${TEMP} ${TDAMP}
-fix                 2 all nvt iso 289 ${TEMP} ${TDAMP}
-fix                 2 all nvt iso 289 289 ${TDAMP}
-fix                 2 all nvt iso 289 289 1000.0
-ERROR: Temperature control must be used with fix nvt (../fix_nvt.cpp:29)
-Last command: fix                 2 all nvt iso ${TEMP} ${TEMP} ${TDAMP}
