@@ -1,12 +1,13 @@
 #!/usr/bin/awk -f
 
 # desired output:
-# z, Pxx(z), Pyy(z), Pzz(z), Pn(z), Pt(z)
+# z, Pxx(z), Pyy(z), Pzz(z), Pn(z), Pt(z), (Pn-Pt), N
 
 # values will be averaged over all timesteps
 
 # TOTAL is the number of atoms in simulation, must remain constant throughout sim
 # threshold is the height of a slice centered at z, in units of Angstroms
+# The system is periodic so the slice will wrap around if at the edges of the simulation box
 
 # each timestep, update the average value for each z 
 
