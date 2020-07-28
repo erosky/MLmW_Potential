@@ -13,7 +13,6 @@
 
 # sim timestep is 10 fs each step, 0.000001 ns
 
-
 BEGIN { Z = 100 ; thickness = 6 ; V = 30000 ; start = 0 ; t = 0 ; Pxx = 0 ; Pyy = 0 ; Pzz = 0 } 
 {
 	if ($2=="TIMESTEP") {
@@ -31,4 +30,4 @@ BEGIN { Z = 100 ; thickness = 6 ; V = 30000 ; start = 0 ; t = 0 ; Pxx = 0 ; Pyy 
 	}
 	if (a==1 && ($5>Z-thickness || $5<Z+thickness-100) && ($5<Z+thickness || $5>100+Z-thickness)) { v_Pxx += $14 ; v_Pyy += $15 ; v_Pzz += $16 ; v_n++ }
 }
-END { print Z "\t" Pxx/t "\t" Pyy/t "\t" Pzz/t "\t" Pzz/t "\t" 0.5*(Pxx/t + Pyy/t) "\t" n/t }
+END { print Z "\t" Pxx/t "\t" Pyy/t "\t" Pzz/t "\t" Pzz/t "\t" 0.5*(Pxx/t + Pyy/t) "\t" n/t "\t" (Pzz/t - 0.5*(Pxx/t + Pyy/t)) }

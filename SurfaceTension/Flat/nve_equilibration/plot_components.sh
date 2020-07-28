@@ -24,3 +24,12 @@ gnuplot -e "set terminal png size 1000,600; \
             set xlabel 'Z (Angstroms)'; \
             set style data lines; \
             plot 'components.dat' using 1:5"
+
+# Plot and save Total Energy
+gnuplot -e "set terminal png size 1000,600; \
+            set output 'Pn_Pt.png'; \
+            set title 'P_n - P_t'; \
+            set ylabel 'P_n - P_t'; \
+            set xlabel 'Z (Angstroms)'; \
+            set style data lines; \
+            plot 'components.dat' using 1:8"
