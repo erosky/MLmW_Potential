@@ -1,8 +1,8 @@
 #!/bin/bash
 
-input=components.dat
+input=components_6A.dat
 
-output=integral.txt
+output=integral_6A.txt
 
 Z=100
 dz=1

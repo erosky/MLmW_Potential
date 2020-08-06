@@ -25,6 +25,7 @@ Instructions
 ------------------
 
 compute_components.sh invokes the compute_components.awk script
+and creates components.dat
 
-
+components.dat is input to integral.sh
 

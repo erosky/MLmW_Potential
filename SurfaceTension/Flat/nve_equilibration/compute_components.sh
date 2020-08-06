@@ -1,6 +1,6 @@
 #!/bin/bash
 
-output=components.dat
+output=components_6A.dat
 
 dumpfile=prod.slab_289K_1atm.dump
 
