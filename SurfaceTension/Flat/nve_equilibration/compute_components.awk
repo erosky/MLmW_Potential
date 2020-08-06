@@ -11,9 +11,11 @@
 
 # each timestep, update the average value for each z 
 
+# V = thickness*50*50 (volume of one slice)
+
 # sim timestep is 10 fs each step, 0.000001 ns
 
-BEGIN { Z = 100 ; thickness = 6 ; V = 30000 ; start = 0 ; t = 0 ; Pxx = 0 ; Pyy = 0 ; Pzz = 0 } 
+BEGIN { Z = 100 ; thickness = 6 ; V = 15000 ; start = 0 ; t = 0 ; Pxx = 0 ; Pyy = 0 ; Pzz = 0 } 
 {
 	if ($2=="TIMESTEP") {
 		if (start==1) { 
