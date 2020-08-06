@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# V = thickness*50*50 (volume of one slice)
+
 output=components_6A.dat
 
 dumpfile=prod.slab_289K_1atm.dump
 
-volume=30000
+volume=15000
 
 truncate -s 0 $output
 
