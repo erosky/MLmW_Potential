@@ -90,8 +90,8 @@ delete_atoms	    region top
 
 # Add the barrier
 #
-#fix                 5 all indent 10.0 plane z 72 hi
-#fix                 6 all indent 0.0 plane z 100 lo
+fix                 5 all indent 10.0 plane z 72 hi
+fix                 6 all indent 0.0 plane z 100 lo
 
 ################################################
 #######         Run Simulation         #########
