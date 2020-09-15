@@ -30,5 +30,5 @@ atom_style          atomic
 #######    Equilibrate Liquid Water    #########
 ################################################
 
-log                 log.eq_${NAME}
-log                 log.eq_slab_289K_1atm
+log                 log.eq_${NAME}_hi
+log                 log.eq_slab_289K_1atm_hi

@@ -29,7 +29,7 @@ atom_style          atomic
 #######    Equilibrate Liquid Water    #########
 ################################################      
 
-log                 log.eq_${NAME}
+log                 log.eq_${NAME}_hi
 
 # Create simulation box of size 50 x 50 x 50 Angstrom
 #
@@ -73,10 +73,10 @@ fix                 2 all nve
 fix                 3 all temp/csvr ${TEMP} ${TEMP} 500.0 928347
 fix                 4 all press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 20000
 
-# Run 0.25 ns equilibration
+# Run 0.15 ns equilibration
 #
 dump                1 all custom 1000 eq.${NAME}.dump id type x y z vx vy vz
-run                 50000
+run                 30000
 
 undump              1
 unfix               2
@@ -85,20 +85,21 @@ unfix               4
 
 # Cut out the Slab
 #
-region		    top block INF INF INF INF 72 INF side in
+region		    top block INF INF INF INF 14 86 side out
 delete_atoms	    region top
 
 # Add the barrier
 #
-fix                 5 all indent 10.0 plane z 72 hi
-fix                 6 all indent 0.0 plane z 100 lo
+fix                 5 all indent 10.0 plane z 86.0 hi
+fix                 6 all indent 10.0 plane z 14.0 lo
+
 
 ################################################
 #######         Run Simulation         #########
 ################################################  
 
 reset_timestep      0
-log                 log.run_${NAME}
+log                 log.run_${NAME}_hi
 
 # Set production fixes - Nose/Hoover
 #
