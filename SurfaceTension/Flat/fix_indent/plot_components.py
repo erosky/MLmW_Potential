@@ -4,11 +4,11 @@ import matplotlib.pyplot as plt
 
 data = np.loadtxt("components_6A.dat")
 data = np.transpose(data)
-z = data[0][:-1]
+z = data[0]
 print (z)
-number = np.roll(data[6][1:],15)
-tangential = np.negative(np.roll(data[5][:-1],15))
-normal = np.negative(np.roll(data[4][:-1],15))
+number = data[6]
+tangential = np.negative(data[5])
+normal = np.negative(data[4])
 
 
 plt.figure(1)
