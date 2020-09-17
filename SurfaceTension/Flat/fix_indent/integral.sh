@@ -1,8 +1,8 @@
 #!/bin/bash
 
-input=components_indentNONE2.dat
+input=components_indent15.dat
 
-output=integral_indentNONE2.txt
+output=integral_indent15.txt
 
 Z=100
 dz=1
