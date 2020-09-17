@@ -9,7 +9,7 @@
 
 
 
-variable            NAME string slab_289K_1atm
+variable            NAME string slab_289K_indent10
 variable            TEMP string 289
 variable            PRES string 1
 variable       	    TCOUPL string 5000.0
@@ -53,7 +53,7 @@ minimize            1.0e-8 1.0e-8 10000 1000
 
 # Add velocity/set timestep
 #
-velocity            all create ${TEMP} 120598 rot yes dist gaussian
+velocity            all create ${TEMP} 120398 rot yes dist gaussian
 timestep            5.0
 
 # Define output
@@ -73,10 +73,10 @@ fix                 2 all nve
 fix                 3 all temp/csvr ${TEMP} ${TEMP} 500.0 928347
 fix                 4 all press/berendsen iso ${PRES} ${PRES} 1000.0 modulus 20000
 
-# Run 0.15 ns equilibration
+# Run 0.25 ns equilibration
 #
 dump                1 all custom 1000 eq.${NAME}.dump id type x y z vx vy vz
-run                 30000
+run                 50000
 
 undump              1
 unfix               2

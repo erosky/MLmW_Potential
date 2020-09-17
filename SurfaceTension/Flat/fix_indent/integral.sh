@@ -1,8 +1,8 @@
 #!/bin/bash
 
-input=components_6A.dat
+input=components_indentNONE2.dat
 
-output=integral_6A.txt
+output=integral_indentNONE2.txt
 
 Z=100
 dz=1
