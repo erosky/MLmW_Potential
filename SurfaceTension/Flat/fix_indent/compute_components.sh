@@ -2,9 +2,9 @@
 
 # V = thickness*50*50 (volume of one slice)
 
-output=components_indent15.dat
+output=components_halfindent0p1.dat
 
-dumpfile=prod.slab_289K_indent15.dump
+dumpfile=prod.slab_289K_halfindent0p1.dump
 
 volume=15000
 
