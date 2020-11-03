@@ -79,9 +79,6 @@ dump                1 all custom 1000 eq.${NAME}.dump id type x y z vx vy vz
 run                 50000
 
 undump              1
-unfix               2
-unfix               3
-unfix               4
 
 # Cut out the Slab
 #
@@ -92,6 +89,17 @@ delete_atoms	    region top
 #
 fix                 5 all indent 0.1 plane z 86.0 hi
 # fix                 6 all indent 10.0 plane z 14.0 lo
+
+
+# Run 0.25 ns equilibration
+#
+dump                1 all custom 1000 eq2.${NAME}.dump id type x y z vx vy vz
+run                 50000
+
+undump              1
+unfix               2
+unfix               3
+unfix               4
 
 
 ################################################
