@@ -1,0 +1,6 @@
+top and bottom: 
+-5983.48
+top: 
+-6033.05
+bottom: 
+-5918.42

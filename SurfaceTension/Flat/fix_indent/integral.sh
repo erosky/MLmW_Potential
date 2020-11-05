@@ -1,8 +1,8 @@
 #!/bin/bash
 
-input=components_halfindent0p1.dat
+input=components_longhalfindent10.dat
 
-output=integral_halfindent0p1.txt
+output=integral_longhalfindent10.txt
 
 Z=100
 H=$(expr $Z / 2)

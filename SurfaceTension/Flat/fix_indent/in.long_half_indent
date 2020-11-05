@@ -9,7 +9,7 @@
 
 
 
-variable            NAME string slab_289K_longhalfindent
+variable            NAME string slab_289K_longhalfindent1o
 variable            TEMP string 289
 variable            PRES string 1
 variable       	    TCOUPL string 5000.0
@@ -87,7 +87,7 @@ delete_atoms	    region top
 
 # Add the barrier (top indentor only)
 #
-fix                 5 all indent 0.1 plane z 86.0 hi
+fix                 5 all indent 10.0 plane z 86.0 hi
 # fix                 6 all indent 10.0 plane z 14.0 lo
 
 
