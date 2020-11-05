@@ -2,9 +2,9 @@
 
 # V = thickness*50*50 (volume of one slice)
 
-output=components_longhalfindent10.dat
+output=components_longhalfindent0p1.dat
 
-dumpfile=prod.slab_289K_longhalfindent10.dump
+dumpfile=prod.slab_289K_longhalfindent0p1.dump
 
 volume=15000
 
