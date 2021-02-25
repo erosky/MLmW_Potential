@@ -14,8 +14,8 @@ echo "running"
 run=$1
 start=40
 end=1040
-logfile="log.run_liquid_298K_1atm_ML"
-datafile="run_liquid_298K_1atm_ML.dat"
+logfile="log.run_liquid_298K_1atm_ML_NPT"
+datafile="run_liquid_298K_1atm_ML_NPT.dat"
 
 temp="298"
 pres="1 atm"

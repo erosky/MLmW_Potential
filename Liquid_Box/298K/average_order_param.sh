@@ -4,7 +4,7 @@
 # if line in file has 14 entries, then keep it
 # average values of last 5 fields q4, q6, q8, q10, q12
 
-dumpfile="prod.water_box_298K_1atm_ML.dump"
+dumpfile="prod.liquid_298K_1atm_ML_NPT.dump"
 
 echo "Order parameters computed for 900 water molecules at 298K and 1 atm, ML-mW model"
 

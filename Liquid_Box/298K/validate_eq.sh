@@ -12,8 +12,8 @@ echo $1
 run=$1
 start=115
 end=1115
-logfile="log.eq_liquid_298K_1atm_ML"
-datafile="eq_liquid_289K_1atm_ML.dat"
+logfile="log.eq_liquid_298K_1atm_ML_NPT"
+datafile="eq_liquid_289K_1atm_ML_NPT.dat"
 
 temp="298"
 pres="1atm"
@@ -26,7 +26,7 @@ sed "s/^[ \t]*//" ${logfile} | awk -v start=${start} -v end=${end} '{if ((NR>sta
 
 # Plot and save Pot Energy
 gnuplot -e "set terminal png size 1000,600; \
-            set output 'PE_${pres}_${temp}_ML.png'; \
+            set output 'PE_${pres}_${temp}_ML_NPT.png'; \
             set title 'Potential Energy - ${temp}K equilibration, ML-mW'; \
             set ylabel 'kJ/mol'; \
             set xlabel 'Time (ns)'; \
@@ -35,7 +35,7 @@ gnuplot -e "set terminal png size 1000,600; \
 
 # Plot and save Mean square disp
 gnuplot -e "set terminal png size 1000,600; \
-            set output 'MSD_${pres}_${temp}_ML.png'; \
+            set output 'MSD_${pres}_${temp}_ML_NPT.png'; \
             set title 'Mean Square Displacement - ${temp}K equilibration, ML-mW'; \
             set ylabel 'Angstroms'; \
             set xlabel 'Time (ns)'; \
@@ -45,7 +45,7 @@ gnuplot -e "set terminal png size 1000,600; \
 
 # Plot and save Pressure
 gnuplot -e "set terminal png size 1000,600; \
-            set output 'Pres_${pres}_${temp}_ML.png'; \
+            set output 'Pres_${pres}_${temp}_ML_NPT.png'; \
             set title 'Pressure - ${temp}K equilibration, ML-mW'; \
             set ylabel 'atm'; \
             set xlabel 'Time (ns)'; \
@@ -54,7 +54,7 @@ gnuplot -e "set terminal png size 1000,600; \
 
 # Plot and save Volume
 gnuplot -e "set terminal png size 1000,600; \
-            set output 'Vol_${pres}_${temp}_ML.png'; \
+            set output 'Vol_${pres}_${temp}_ML_NPT.png'; \
             set title 'Volume - ${temp}K equilibration, ML-mW'; \
             set ylabel 'cubic Angstroms'; \
             set xlabel 'Time (ns)'; \

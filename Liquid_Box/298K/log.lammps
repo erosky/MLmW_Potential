@@ -1,4 +1,4 @@
-LAMMPS (7 Aug 2019)
+LAMMPS (29 Oct 2020)
 # GAME PLAN
 # ML-mW, Chan et.al. 2009, Nat Comm
 # fill box with randomly distributed atoms
@@ -10,7 +10,7 @@ LAMMPS (7 Aug 2019)
 
 
 
-variable            NAME string liquid_298K_1atm_ML
+variable            NAME string liquid_298K_1atm_ML_NPT
 variable            TEMP string 298
 variable            PRES string 1
 variable       	    TCOUPL string 5000.0
@@ -31,4 +31,4 @@ atom_style          atomic
 ################################################
 
 log                 log.eq_${NAME}
-log                 log.eq_liquid_298K_1atm_ML
+log                 log.eq_liquid_298K_1atm_ML_NPT
