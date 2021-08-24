@@ -1,0 +1,55 @@
+Measure the pres v density relation in a range of temperatures that are used in our simulations.
+temperature range is 205 to 230
+
+every 5 Kelvin would be 205, 210, 215, 220, 225, 230
+
+Pressures would range from 500 atm to -1000 atm in intervals of 50 atm for a total of 30 pressures
+
+To run, write a script that iterates through the temperature directories 
+
+Aug 23 night - run press v density on laptop
+
+Aug 24 portland - run between plates freezing runs... like 5 of them in the -500 and 1 atm temperature range, on supercomputer? or on research machine.
+
+4 ns simulations
+
+workflow:
+- create template input file
+- make script to set up each case using template
+- test some cases
+- start running sims.
+
+
+Setup scripts:
+create_runs.sh temperature pressure
+- cd into temperature folder
+- make folder for pressure and put input file and potential file into the folder
+
+setup_runs.sh 
+for each temperature
+- create temperature directory
+- run create_runs for each pressure
+
+execute_runs.sh
+for each temperature
+- cd into the folder
+for each pressure
+- cd into folder and run script
+
+
+
+Analysis:
+want a data file for each temperature giving 2 rows - pressure, density
+Plot each dataset together on one plot
+
+Test out one temperature first before running all
+
+
+
+===============
+- clean ears
+- brush teeth
+- make emergen-C
+- make pillow
+
+
