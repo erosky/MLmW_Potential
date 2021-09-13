@@ -44,6 +44,9 @@ Plot each dataset together on one plot
 
 Test out one temperature first before running all
 
+Express temperature as fraction of T_melt
+Express density as ratio to ice density
+
 
 
 ===============
