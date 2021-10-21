@@ -9,9 +9,9 @@
 echo $1
 echo $2
 
-start=39
+start=40
 # count number of lines in log file. subtract 
-end=40039
+end=1040
 
 datafile=$2
 
@@ -24,5 +24,5 @@ datafile=$2
 # Use modulo to reduce datapoints, and try to remove correlation between data points
 # mod 20 is every 20 data points taken
 #
-sed "s/^[ \t]*//" $1 | awk -v start=${start} -v end=${end} '{if ((NR>start)&&(NR<end)&&(NR%20 == 0)) {print $0}}' > ${datafile}
+sed "s/^[ \t]*//" $1 | awk -v start=${start} -v end=${end} '{if ((NR>start)&&(NR<end)&&(NR%10 == 0)) {print $0}}' > ${datafile}
 
