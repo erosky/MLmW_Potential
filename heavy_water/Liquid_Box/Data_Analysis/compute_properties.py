@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 # Unit conversion function
 atoms = 4169
-mass_atom = 18.015/(6.02214*(10**23))
+mass_atom = 18.15/(6.02214*(10**23))
 timestep = 5
 def real2SI(metric, value):
 	converted = 0

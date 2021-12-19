@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-# For analyzing thermodynamic data from a lammps log file
 # USE: python validate_water.py DATA_FILE OUTPUT_FILE
 
 import sys
@@ -11,7 +10,7 @@ import matplotlib.pyplot as plt
 
 
 # Unit conversion function
-atoms = 4169
+atoms = 4096
 mass_atom = 18.015/(6.02214*(10**23))
 timestep = 5
 def real2SI(metric, value):
@@ -40,7 +39,7 @@ output = open(outputfile,'w')
 data = np.loadtxt(datafile)
 
 # Ryan Eq
-step, temp, pressure, volume, etotal, ke, pe, msd, dens = np.transpose(data)
+step, temp, pressure, volume, etotal, ke, pe, msd = np.transpose(data)
 
 # nvt Eq
 #step, temp, ke, pe, pressure, msd = transpose(data)
